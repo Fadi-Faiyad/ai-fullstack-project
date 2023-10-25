@@ -6,20 +6,39 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test": "vitest"
   },
   "dependencies": {
+    "@clerk/nextjs": "^4.25.1",
+    "@prisma/client": "^5.3.1",
     "@types/node": "20.8.0",
     "@types/react": "18.2.23",
     "@types/react-dom": "18.2.8",
     "autoprefixer": "10.4.16",
+    "encoding": "^0.1.13",
     "eslint": "8.50.0",
     "eslint-config-next": "13.5.3",
+    "langchain": "^0.0.165",
     "next": "13.5.3",
+    "node-fetch": "^3.3.2",
     "postcss": "8.4.31",
     "react": "18.2.0",
+    "react-autosave": "^0.4.3",
     "react-dom": "18.2.0",
+    "react-loader-spinner": "^5.4.5",
+    "react-spinner": "^0.2.7",
+    "recharts": "^2.9.0",
     "tailwindcss": "3.3.3",
-    "typescript": "5.2.2"
+    "typescript": "5.2.2",
+    "zod": "^3.22.4"
+  },
+  "devDependencies": {
+    "@testing-library/jest-dom": "^6.1.4",
+    "@testing-library/react": "^14.0.0",
+    "@vitejs/plugin-react-swc": "^3.4.0",
+    "jsdom": "^22.1.0",
+    "prisma": "^5.3.1",
+    "vitest": "^0.34.6"
   }
 }

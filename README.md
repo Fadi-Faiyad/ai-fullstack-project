@@ -1,34 +1,120 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# PlanetScale CLI [![Build status](https://badge.buildkite.com/cf225eb6ccc163b365267fd8172a6e5bd9baa7c8fcdd10c77c.svg?branch=main)](https://buildkite.com/planetscale/cli)
 
-## Getting Started
+PlanetScale is more than a database and our CLI is more than a jumble of commands. The `pscale` command line tool brings branches, deploy requests, and other PlanetScale concepts to your fingertips.
 
-First, run the development server:
+![PlanetScale CLI](https://user-images.githubusercontent.com/6104/191803574-be63da54-d255-4f5a-ab2d-2b49cdf7eb12.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
+
+## Installation
+
+#### macOS
+
+`pscale` is available via a Homebrew Tap, and as downloadable binary from the [releases](https://github.com/planetscale/cli/releases/latest) page:
+
+```
+brew install planetscale/tap/pscale
+```
+Optional: `pscale` requires the MySQL Client for certain commands. You can install it by running:
+
+```
+brew install mysql-client
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+To upgrade to the latest version:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```
+brew upgrade pscale
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+#### Linux
 
-## Learn More
+`pscale` is available as downloadable binaries from the [releases](https://github.com/planetscale/cli/releases/latest) page. Download the .deb or .rpm from the [releases](https://github.com/planetscale/cli/releases/latest) page and install with `sudo dpkg -i` and `sudo rpm -i` respectively.
 
-To learn more about Next.js, take a look at the following resources:
+#### Windows
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+`pscale` is available via [scoop](https://scoop.sh/), and as a downloadable binary from the [releases](https://github.com/planetscale/cli/releases/latest) page:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```
+scoop bucket add pscale https://github.com/planetscale/scoop-bucket.git
+scoop install pscale mysql
+```
 
-## Deploy on Vercel
+To upgrade to the latest version:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```
+scoop update pscale
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+#### Manually
+
+Download the pre-compiled binaries from the [releases](https://github.com/planetscale/cli/releases/latest) page and copy to the desired location.
+
+Alternatively, you can install [bin](https://github.com/marcosnils/bin) which works on all `macOS`, `Windows`, and `Linux` platforms:
+
+```
+bin install https://github.com/planetscale/cli
+```
+
+To upgrade to the latest version
+
+```
+bin upgrade pscale
+```
+
+#### Container images 
+
+We provide ready to use Docker container images.  To pull the latest image:
+
+```
+docker pull planetscale/pscale:latest
+```
+
+To pull a specific version:
+
+```
+docker pull planetscale/pscale:v0.63.0
+```
+
+If you like to have a shell alias that runs the latest version of pscale from docker whenever you type `pscale`:
+
+```
+mkdir -p $HOME/.config/planetscale
+alias pscale="docker run -e HOME=/tmp -v $HOME/.config/planetscale:/tmp/.config/planetscale --user $(id -u):$(id -g) --rm -it -p 3306:3306/tcp planetscale/pscale:latest"
+```
+
+If you need a more advanced example that works with service tokens and differentiates between commands that need a pseudo terminal or non-interactive mode, [have a look at this shell function](https://github.com/jonico/pscale-cli-helper-scripts/blob/main/.pscale/cli-helper-scripts/use-pscale-docker-image.sh).
+
+## GitHub Actions Usage
+Use the [setup-pscale-action](https://github.com/planetscale/setup-pscale-action) to install and use `pscale` in GitHub Actions.
+
+```yaml
+- name: Setup pscale
+  uses: planetscale/setup-pscale-action@v1
+- name: Use pscale
+  env:
+    PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+    PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+  run: |
+    pscale deploy-request list my-db --org my-org
+```
+
+## Local Development
+
+To run a command:
+```
+go run cmd/pscale/main.go <command>
+```
+
+Alternatively, you can build `pscale`:
+```
+go build cmd/pscale/main.go
+```
+
+And then use the `pscale` binary built in `cmd/pscale/` for testing:
+```
+./cmd/pscale/pscale <command>
+```
+
+## Documentation
+
+Please checkout our Documentation page: [planetscale.com/docs](https://planetscale.com/docs/reference/planetscale-cli)
