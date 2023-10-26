@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest",
-    "base": "/mood/"
+    
   },
   "dependencies": {
     "@clerk/nextjs": "^4.25.1",
