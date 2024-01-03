@@ -6,7 +6,7 @@ import HomePage from '../app/page'
 
 vi.mock('@clerk/nextjs', () => {
     return {
-        auth: () => new Promise ((resolve) => resolve({userId: 'asdfj'})),
+        auth: () => new Promise ((resolve) => resolve({userId: 'asdfjZDDBfsdbsdftnh'})),
         ClerkProvider: ({ children }) => <div>{children}</div>,
         useUser: () => ({
             isSignedIn: true,
@@ -18,7 +18,7 @@ vi.mock('@clerk/nextjs', () => {
     }
 })
 
-test('Home', async () => {
-    render(await HomePage())
+test('Home', () => {
+    render(< HomePage />)
     expect(screen.getByText('get started')).toBeTruthy()
 })
