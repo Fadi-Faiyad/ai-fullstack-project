@@ -7,7 +7,7 @@ export default async function Home() {
   let href = userId ? '/journal' : '/new-user'
 
   return (
-    <div className="w-screen h-screen bg-black flex justify-center items-center 
+    <div className="w-screen h-screen bg-amber-500 flex justify-center items-center 
     text-white">
       <div className="w-full  max-w-[600px] mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-1 gap-4" >
@@ -18,7 +18,7 @@ export default async function Home() {
         </div>
         <div>
           <Link href={href}>
-            <button className="bg-blue-600 px-4 rounded-lg text-xl">get started</button>
+            <button className="bg-amber-50 text-amber-500 px-4 rounded-lg text-xl">Get Started</button>
           </Link>
         </div>
       </div>

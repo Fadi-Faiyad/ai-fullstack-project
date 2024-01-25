@@ -30,12 +30,12 @@ const Question = () => {
                 value={value}
                 type="text"
                 placeholder="Ask a question"
-                className="border border-black/20 px-4 py-6 text-lg rounded-lg"
+                className=" text-amber-500 border-amber-100 shadow-lg shadow-cyan-500/100 px-4 py-6 text-lg rounded-lg"
             />
             <button 
             disabled = {loading}
             type="submit" 
-            className="bg-red-400 px-4 py-2 rounded-lg text-lg"
+            className=" text-amber-500 border-amber-100 shadow-lg ml-2 shadow-cyan-500/100 px-4 py-2 rounded-lg text-lg"
             > 
             Ask 
             </button>
