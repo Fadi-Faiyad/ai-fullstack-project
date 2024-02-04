@@ -15,7 +15,7 @@ const links = [
 
 
 const DashboardLayout = ({ children }) => {
-    return <div className="  pr-6 w-auto  lg:h-screen lg:w-screen lg:relative bg-amber-500  ">
+    return <div className="  pb-2 pr-6 w-auto  lg:h-screen lg:w-screen lg:relative bg-amber-500  ">
         <aside className=" absolute lg:w-[200px] lg:top-2 lg:left-0 h-full">
             
             

@@ -35,7 +35,7 @@ const JournalPage = async () => {
       </div>
       <div className="h-full-screen grid grid-cols-1 gap-4 lg:grid-cols-4 ">
         <div className=" snap-center text-amber-500 border-amber-100"> <NewEntryCard /> </div>
-        <div className=" h-full-screen grid grid-cols-2 gap-10 max-w-full sm:h-[500px] overflow-y-scroll overflow-hidden ">
+        <div className=" grid grid-cols-2 gap-10 max-w-full h-[400px] overflow-y-scroll overflow-hidden ">
         {data.map((entry) => (
           <div className="rounded-lg border-4 text-amber-500 border-amber-100 shadow-lg shadow-cyan-500/100" key={entry.id}>
             <Link className="bg-amber-500" href={`/journal/${entry.id}`}>
