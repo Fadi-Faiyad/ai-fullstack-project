@@ -28,14 +28,14 @@ const JournalPage = async () => {
   const data = await getEntries()
   return (
     <div 
-    className="px-6 py-8 h-full w-full bg-amber-50"  style={{ backgroundImage: 'url("../imgUrl.jpg")' }}>
+    className=" pl-10 pr-10 lg:px-6 lg:py-8 h-full w-full bg-amber-50"  style={{ backgroundImage: 'url("../imgUrl.jpg")' }}>
       <h1 className="text-4xl mb-12 rounded-full text-center bg-amber-500 text-cyan-50 shadow-lg shadow-cyan-500/100	">Journals</h1>
       <div className="my-8  shadow-cyan-500/100">
         <Question />
       </div>
-      <div className="grid grid-cols-3 gap-4">
-        <div className=" text-amber-500 border-amber-100"> <NewEntryCard /> </div>
-
+      <div className="h-full-screen grid grid-cols-1 gap-4 lg:grid-cols-4 ">
+        <div className=" snap-center text-amber-500 border-amber-100"> <NewEntryCard /> </div>
+        <div className=" h-full-screen grid grid-cols-2 gap-10 max-w-full sm:h-[500px] overflow-y-scroll overflow-hidden ">
         {data.map((entry) => (
           <div className="rounded-lg border-4 text-amber-500 border-amber-100 shadow-lg shadow-cyan-500/100" key={entry.id}>
             <Link className="bg-amber-500" href={`/journal/${entry.id}`}>
@@ -43,6 +43,7 @@ const JournalPage = async () => {
             </Link>
           </div>
         ))}
+        </div>
       </div>
     </div>
   )
