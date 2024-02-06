@@ -50,14 +50,14 @@ const Editor = ({ entry }) => {
 
             <div className="border-l border-black/10">
                 <div className=" px-6 py-10" style={{ backgroundColor: color }}>
-                    <h2 className="text-2xl bg-white/25 text-black">Analysis</h2>
+                    <h2 className="text-2xl bg-white/25 text-amber-50">Analysis</h2>
                 </div>
                 <div className="">
                     <ul role="list" className="divide-y divide-gray-200">
                         {analysisData.map(item => (
                             <li
                                 key={item.name}
-                                className="px-2 py-4 flex items-center justify-between border-b border-t border-black/10"
+                                className="px-2 py-4 flex items-center justify-between border-b border-t border-black/10 text-amber-50"
                             >
                                 <span className="text-lg font-semibold">{item.name}</span>
                                 <span>{item.value}</span>
